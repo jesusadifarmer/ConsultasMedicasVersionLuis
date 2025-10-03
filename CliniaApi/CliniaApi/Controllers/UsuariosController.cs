@@ -20,6 +20,12 @@ public class UsuariosController : ControllerBase
         _context = context;
     }
 
+    /// <summary>
+    /// Obtiene la lista completa de usuarios registrados en el sistema.
+    /// </summary>
+    /// <returns>
+    /// Una respuesta HTTP 200 con la colección de usuarios encontrados.
+    /// </returns>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<UsuarioResponse>>> GetUsuarios()
     {
@@ -32,6 +38,13 @@ public class UsuariosController : ControllerBase
         return Ok(response);
     }
 
+    /// <summary>
+    /// Obtiene la información de un usuario específico.
+    /// </summary>
+    /// <param name="id">Identificador del usuario a consultar.</param>
+    /// <returns>
+    /// Una respuesta HTTP 200 con la información del usuario, o 404 si no existe.
+    /// </returns>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<UsuarioResponse>> GetUsuario(int id)
     {
@@ -47,6 +60,13 @@ public class UsuariosController : ControllerBase
         return Ok(ToResponse(usuario));
     }
 
+    /// <summary>
+    /// Crea un nuevo usuario con la información proporcionada.
+    /// </summary>
+    /// <param name="request">Datos del usuario a registrar.</param>
+    /// <returns>
+    /// Una respuesta HTTP 201 con el usuario creado o un mensaje de error si la operación falla.
+    /// </returns>
     [HttpPost]
     public async Task<ActionResult<UsuarioResponse>> CreateUsuario([FromBody] UsuarioRequest request)
     {
@@ -82,6 +102,14 @@ public class UsuariosController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Actualiza la información de un usuario existente.
+    /// </summary>
+    /// <param name="id">Identificador del usuario a actualizar.</param>
+    /// <param name="request">Datos actualizados para el usuario.</param>
+    /// <returns>
+    /// Una respuesta HTTP 200 con el usuario actualizado o un mensaje de error si no se encuentra.
+    /// </returns>
     [HttpPut("{id:int}")]
     public async Task<ActionResult<UsuarioResponse>> UpdateUsuario(int id, [FromBody] UsuarioRequest request)
     {
@@ -111,6 +139,13 @@ public class UsuariosController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Desactiva lógicamente a un usuario existente.
+    /// </summary>
+    /// <param name="id">Identificador del usuario a desactivar.</param>
+    /// <returns>
+    /// Una respuesta HTTP 204 si la operación se ejecuta correctamente o 404 si no existe.
+    /// </returns>
     [HttpDelete("{id:int}")]
     public async Task<IActionResult> DeleteUsuario(int id)
     {
@@ -131,6 +166,11 @@ public class UsuariosController : ControllerBase
         return NoContent();
     }
 
+    /// <summary>
+    /// Convierte un modelo de dominio <see cref="Usuario"/> en su representación de respuesta.
+    /// </summary>
+    /// <param name="usuario">Entidad de usuario a transformar.</param>
+    /// <returns>Un objeto listo para ser devuelto al cliente.</returns>
     private static UsuarioResponse ToResponse(Usuario usuario) => new()
     {
         Id = usuario.Id,
