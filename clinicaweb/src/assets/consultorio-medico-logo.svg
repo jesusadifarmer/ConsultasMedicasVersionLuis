@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-labelledby="title desc">
+  <title id="title">Consultorio Médico</title>
+  <desc id="desc">Logo con fondo azul y las palabras Consultorio Médico en blanco con una sonrisa.</desc>
+  <rect width="320" height="180" rx="36" fill="#0B6EDB" />
+  <text x="50%" y="72" fill="#fff" font-family="'Montserrat', 'Segoe UI', sans-serif" font-size="44" font-weight="700" text-anchor="middle">Consultorio</text>
+  <text x="50%" y="128" fill="#fff" font-family="'Montserrat', 'Segoe UI', sans-serif" font-size="58" font-weight="700" text-anchor="middle">Médico</text>
+  <path d="M100 144c18 18 52 30 60 30s42-12 60-30" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" />
+</svg>
